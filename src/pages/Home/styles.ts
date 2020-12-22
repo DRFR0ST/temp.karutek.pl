@@ -39,11 +39,8 @@ export default ((theme: any) => ({
         height: "100%"
     },
     logo: {
-        width: "250px",
+        width: "185px",
         height: "auto",
-        [theme.breakpoints.down('md')]: {
-            width: "185px"
-        }
     },
     socialIcon: {
         margin: "0 8px",
