@@ -1,5 +1,5 @@
 {
-  "name": "cra-website-template",
+  "name": "temp.karutek.pl",
   "version": "0.1.0",
   "private": true,
   "author": "Mike Eling <mike.eling97@gmail.com>",
@@ -15,6 +15,7 @@
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
     "classnames": "^2.2.6",
+    "fg-loadcss": "^3.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-littera": "^2.1.4",
