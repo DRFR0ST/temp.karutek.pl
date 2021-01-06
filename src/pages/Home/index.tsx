@@ -7,6 +7,7 @@ import cx from "classnames";
 // Project scoped imports.
 import logo from 'assets/logo.png'
 import FontAwesome from 'components/FontAwesome'
+import CalendlyDialog from "components/CalendlyDialog/"
 
 // Component scoped imports.
 import styles from "./styles";
@@ -39,8 +40,9 @@ const Home = (props: ComponentProps) => {
                     <h1 style={{ whiteSpace: "pre-wrap", textTransform: "uppercase", marginBottom: "5px", fontSize: "48px", lineHeight: "45px" }}>{translated.title}</h1>
                     <p style={{ opacity: 0.45, whiteSpace: "pre-wrap" }}>{translated.slogan}</p>
 
+                    <br />
+                    <CalendlyDialog />
                     <br /><br />
-
                     <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-start", opacity: 0.4 }}>
                         <FontAwesome iconProps={{ onClick: handleNavigation("https://fb.karutek.pl/") }} className={classes.socialIcon} >fab fa-facebook</FontAwesome>
                         <FontAwesome iconProps={{ onClick: handleNavigation("https://ig.karutek.pl/") }} className={classes.socialIcon} >fab fa-instagram</FontAwesome>

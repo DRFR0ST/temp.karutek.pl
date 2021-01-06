@@ -6,7 +6,9 @@ export default ((theme: any) => ({
         height: "100vh",
         width: "100%",
         display: "flex",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        backgroundColor: theme.palette.background.default,
+        color: theme.palette.text.primary
     },
     h4: {
         // Head text styles...
@@ -35,12 +37,14 @@ export default ((theme: any) => ({
         top: "50%",
         left: "50%",
         transform: "translate(-50%, -50%)",
-        width: "auto",
-        height: "100%"
+        width: "100%",
+        height: "auto",
     },
     logo: {
         width: "185px",
         height: "auto",
+        borderRadius: "100%",
+        marginTop: "8px"
     },
     socialIcon: {
         margin: "0 8px",
