@@ -4,12 +4,12 @@ import { Home, Temp, WrongPage } from "pages/"
 
 const Routes = () => {
     // Use Temp component for maintenance mode.
-    const mtMode = !!process.env.REACT_APP_MAINTENANCE_MODE;
-    const HomeComponent = mtMode ? Temp : Home;
+    const prodMode = !!process.env.REACT_APP_PRODUCTION_MODE;
+    const HomeComponent = !prodMode ? Temp : Home;
 
     return <Switch>
         <Route path="/" exact component={HomeComponent} />
-        {mtMode && <Route path="/dev" exact component={Home} />}
+        {!prodMode && <Route path="/dev" exact component={Home} />}
         <Route exact component={WrongPage} />
     </Switch>
 }
