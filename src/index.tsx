@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
+import { hotjar } from 'react-hotjar';
+import config from './config'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -10,6 +12,8 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+hotjar.initialize(config.hotjar.hjid, config.hotjar.hjsv)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

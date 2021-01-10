@@ -1,17 +1,18 @@
 // Deps scoped imports.
 import React from "react";
-import { makeStyles } from "@material-ui/core";
-import { useLittera, useLitteraMethods } from "react-littera";
+import { Box, Container, makeStyles, Tooltip } from "@material-ui/core";
+import { useLittera } from "react-littera";
 import cx from "classnames";
 
 // Project scoped imports.
-import logo from 'assets/logo.png'
+import Logo from 'components/Logo/';
 import FontAwesome from 'components/FontAwesome'
 import CalendlyDialog from "components/CalendlyDialog/"
 
 // Component scoped imports.
 import styles from "./styles";
 import translations from "./trans";
+import Footer from "./components/Footer/";
 
 /**
  * Home component
@@ -21,47 +22,65 @@ import translations from "./trans";
  */
 const Home = (props: ComponentProps) => {
     const translated = useLittera(translations);
-    const { setLocale } = useLitteraMethods();
     const classes = useStyles();
 
     const handleNavigation = (url: string) => () => {
         window.open(url);
     }
 
-    const handleLanguage = (locale: string) => () => {
-        setLocale(locale);
-    }
 
-    return <div className={cx(classes.root, props.className)} style={props.style}>
-        <div className={classes.contentContainer}>
-            <div className={classes.contentWrapper}>
-                <img alt="logo" src={logo} className={classes.logo} />
-                <div>
-                    <h1 style={{ whiteSpace: "pre-wrap", textTransform: "uppercase", marginBottom: "5px", fontSize: "48px", lineHeight: "45px" }}>{translated.title}</h1>
-                    <p style={{ opacity: 0.45, whiteSpace: "pre-wrap" }}>{translated.slogan}</p>
+    return <Box>
+        <Box className={cx(classes.root)}>
+            <Container>
+                <Box display="flex" justifyContent="space-evenly" alignItems="flex-start" height="100%" width="100%" position="relative">
+                    <Box alignItems="flex-start" justifyContent="space-between" flexDirection="column" width="50%" height="100%" display="flex">
+                        <Box>
+                            <Logo style={{ margin: "10px 0" }} />
+                        </Box>
 
-                    <br />
-                    <CalendlyDialog />
-                    <br /><br />
-                    <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-start", opacity: 0.4 }}>
-                        <FontAwesome iconProps={{ onClick: handleNavigation("https://fb.karutek.pl/") }} className={classes.socialIcon} >fab fa-facebook</FontAwesome>
-                        <FontAwesome iconProps={{ onClick: handleNavigation("https://ig.karutek.pl/") }} className={classes.socialIcon} >fab fa-instagram</FontAwesome>
-                        <FontAwesome iconProps={{ onClick: handleNavigation("mailto://contact@karutek.pl") }} className={classes.socialIcon} >fas fa-envelope</FontAwesome>
-                    </div>
-                </div>
-                <div style={{ height: "15vh", display: "flex", justifyContent: "flex-end", width: "100%", alignItems: "center" }}>
-                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "180px" }}>
-                        <p style={{ textDecoration: "underline", opacity: 0.8, fontSize: "14px", cursor: 'pointer' }} onClick={handleLanguage('pl_PL')}>Polski</p>
-                        <p style={{ textDecoration: "underline", opacity: 0.8, fontSize: "14px", cursor: 'pointer' }} onClick={handleLanguage('de_DE')}>Deutsch</p>
-                        <p style={{ textDecoration: "underline", opacity: 0.8, fontSize: "14px", cursor: 'pointer' }} onClick={handleLanguage('en_US')}>English</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div className={classes.imageWrapper}>
-            <img alt="thumbnail" src={`https://source.unsplash.com/0J_W8DQzDas/${window.innerWidth / 2}x${window.innerHeight}`} className={classes.image} />
-        </div>
-    </div>
+                        <Box>
+                            <h1 style={{ whiteSpace: "pre-wrap", textTransform: "uppercase", marginBottom: "5px", fontSize: "48px", lineHeight: "45px", fontFamily: "'Pompiere', cursive" }}>{translated.title}</h1>
+                            <p style={{ opacity: 0.6, whiteSpace: "pre-wrap" }}>{translated.slogan}</p>
+
+                        <br />
+                        <CalendlyDialog />
+                            <br />
+                        </Box>
+
+                        {/* <Box className={classes.dummy}></Box> */}
+                        <Box className={classes.socialIconContainer} display="flex" alignItems="center" justifyContent="flex-start">
+                            <Tooltip title="Facebook">
+                                <FontAwesome iconProps={{ onClick: handleNavigation("https://fb.karutek.pl/") }} className={classes.socialIcon} >fab fa-facebook</FontAwesome>
+                            </Tooltip>
+                            <Tooltip title="Instagram">
+                                <FontAwesome iconProps={{ onClick: handleNavigation("https://ig.karutek.pl/") }} className={classes.socialIcon} >fab fa-instagram</FontAwesome>
+                            </Tooltip>
+                            <Tooltip title="E-Mail">
+                                <FontAwesome iconProps={{ onClick: handleNavigation("mailto://contact@karutek.pl") }} className={classes.socialIcon} >fas fa-envelope</FontAwesome>
+                            </Tooltip>
+                        </Box>
+                    </Box>
+
+                    <Box width="50%" height="100%" display="flex" alignItems="center" justifyContent="flex-end" position="relative">
+                        <div style={{ borderRadius: "1000px", backgroundColor: "#FFF", width: "600px", height: "600px", position: "relative" }}>
+
+                            <Box className={cx(classes.cardContainer, classes.cardFrontContainer)} style={{ transformOrigin: "center center", transform: "rotate(5deg) translate(-40%, -50%)", zIndex: 500 }} position="absolute" width="540px" height="355px">
+                                <img alt="someimage" className={classes.cardImage} src="https://source.unsplash.com/5NLCaz2wJXE/540x355" />
+                            </Box>
+                            <Box className={cx(classes.cardContainer)} style={{ transformOrigin: "center center", transform: "rotate(-15deg) translate(-45%, -40%)", zIndex: 499 }} position="absolute" width="485px" height="300px">
+                                <img alt="someimage" className={classes.cardImage} src="https://source.unsplash.com/PQeoQdkU9jQ/485x300" />
+                            </Box>
+                            <Box className={cx(classes.cardContainer)} style={{ transformOrigin: "center center", transform: "rotate(20deg) translate(-45%, -60%)", zIndex: 498 }} position="absolute" width="485px" height="300px">
+                                <img alt="someimage" className={classes.cardImage} src="https://source.unsplash.com/yQEcRJkmH3I/485x300" />
+                            </Box>
+                        </div>
+                    </Box>
+                </Box>
+            </Container>
+        </Box>
+
+        <Footer />
+    </Box>
 }
 
 // Creates a hook for generating classnames.

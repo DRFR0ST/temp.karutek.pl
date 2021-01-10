@@ -3,7 +3,10 @@ import { createStyles } from "@material-ui/core/styles";
 
 const styles = ((theme: any) => createStyles({
     root: {
-        // Container styles...
+        backgroundColor: "#121212",
+        minHeight: 64,
+        color: "#FFF",
+        paddingTop: "15px"
     },
     h4: {
         // Head text styles...
